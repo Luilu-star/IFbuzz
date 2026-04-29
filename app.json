@@ -4,12 +4,12 @@
     "slug": "IFbuzz",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/splash-icon.webp",
+    "icon": "./src/assets/Logo_bus_background.png",
     "scheme": "ifbuzz",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/splash-icon.webp",
+      "image": "./src/assets/Logo_bus_background.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./src/assets/logo.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -27,7 +27,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/splash-icon.webp"
+      "favicon": "./src/assets/Logo_bus_background.png"
     },
     "plugins": [
       "expo-router"

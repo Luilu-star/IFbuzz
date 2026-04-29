@@ -1,4 +1,4 @@
-import { View, Text,  StyleSheet, ImageBackground, TextInputComponent, TextInput } from "react-native";
+import { StyleSheet, Text, TextInput, View, Image, Button, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -14,20 +14,60 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     Text : {
-        marginTop: 200,
         fontSize: 24,
         fontWeight: "bold",
-        color: '#FFFFFF'
     },
+    card: {
+        width: '90%',
+        height: '70%',
+        backgroundColor: '#f7f7f7',
+        borderRadius: 10,
+        padding: 20,
+        margin: 10,
+        elevation: 5,
+        boxShadow: '1px 4px 8px rgba(0, 0, 0, 0.1)',
+        justifyContent: 'flex-start',
+        alignContent: 'center',
+        
+    },
+    separator: {
+        width: '100%',
+        height: 1,
+        backgroundColor: '#ccc',
+        marginVertical: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+    },
+    /*form: {
+        justifyContent: 'flex-start',
+        alignContent: 'flex-start',
+        marginTop: 20,
+        gap: 12,
+    },*/
 })
 
 
 export default function App() {
     return (
-        <ImageBackground source={require('@/assets/fundo.jpeg')} style={styles.background}>
-            <Text style={styles.Text}>Você deve se matar agora</Text>
-            <Text style={{fontSize: 18, color: '#FFFFFF', marginTop: 20, textAlign: 'center'}}>Eulalia, essa mensagem é pra você, viu</Text>
-            <TextInput placeholder="Nome usuário" style={{width: 200, height: 40, borderColor: 'gray', borderWidth: 1, borderRadius: 5, marginTop: 20, backgroundColor: '#FFFFFF'}}/>
-        </ImageBackground>
+        <>
+        <View style={styles.container}>
+            
+                <View style={styles.card}>
+                    <Image source={require('@/assets/logo.png')} style={{marginTop: 20, alignSelf: 'center'}} />
+                    <Text style={[styles.Text, {marginTop: 50}]}>Login</Text>
+                    <TextInput placeholder="Matricula" style={{marginTop: 40, padding: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 5}} />
+                    <TextInput placeholder="Senha" secureTextEntry={true} style={{marginTop: 20, padding: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 5}} />
+                    
+                    <TouchableOpacity>
+                        <Text style={{color: '#007BFF', marginTop: 10, marginBottom: 120, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
+                    </TouchableOpacity>
+        
+                    <Button title="Entrar"  color={'#B8E891'} />
+                    <View style={styles.separator} />
+
+                </View>
+
+        </View>
+        </>
     );
 };
