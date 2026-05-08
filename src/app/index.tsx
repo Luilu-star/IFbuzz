@@ -61,17 +61,22 @@ export default function App() {
 
             <View style={{padding: 30,}}>
 
-                <Text style={{marginTop: 70, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
-                <TextInput placeholder="Matricula" style={{padding: 13, borderRadius: 12, backgroundColor: '#D9D9D9'}} />
+                <Text style={{marginTop: 60, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
+                <TextInput placeholder="Matricula" style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
 
-                <Text style={{marginTop: 35, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
-                <TextInput placeholder="Senha" secureTextEntry={true} style={{padding: 13, borderRadius: 12, backgroundColor: '#D9D9D9'}} />
+                <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
+                <TextInput placeholder="Senha" secureTextEntry={true} style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
                 
                 <TouchableOpacity>
-                    <Text style={{color: '#007BFF', marginTop: 10, marginBottom: 120, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
+                    <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
                 </TouchableOpacity>
 
                 <Button title="Entrar"  color={'#B8E891'} />
+
+                <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
+                <TouchableOpacity>
+                    <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
+                </TouchableOpacity>
 
             </View>
 
