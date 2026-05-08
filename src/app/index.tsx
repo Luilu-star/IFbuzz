@@ -3,8 +3,6 @@ import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "rea
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
     },
     background: {
         flex: 1,
@@ -17,7 +15,15 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
     },
-    card: {
+    separator: {
+        width: '100%',
+        height: 1,
+        backgroundColor: '#ccc',
+        marginVertical: 15,
+        borderBottomWidth: 3,
+        borderBottomColor: '#ccc',
+    },
+    /*card: {
         width: '90%',
         height: '70%',
         backgroundColor: '#f7f7f7',
@@ -30,15 +36,8 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         
     },
-    separator: {
-        width: '100%',
-        height: 1,
-        backgroundColor: '#ccc',
-        marginVertical: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-    },
-    /*form: {
+    
+    form: {
         justifyContent: 'flex-start',
         alignContent: 'flex-start',
         marginTop: 20,
@@ -51,47 +50,36 @@ export default function App() {
     return (
         <>
         <View style={styles.container}>
-            
-                <View style={styles.card}>
-                    <View style={{ flex: 1}}>
-                    <Text style={{ fontSize: 40, textAlign: 'center', marginTop: 3, color: '#CC191E', fontWeight: 'bold' }}>
-                        LOGIN
-                    </Text>
 
-                    <Text style={{
-                        position: 'absolute',
-                        top:0.5,
-                        left: 6,
-                        fontSize: 40,
-                        fontWeight: 'bold'
-
-                    }}>
-                        ←
-                    </Text>
-
-                    </View>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}> Matricula </Text>
-                    <TextInput placeholder="Matricula" style={{marginTop:10, padding: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 5}} />
-                    <Text style={{ marginTop: 20, fontSize: 20, fontWeight: 'bold' }}> Senha </Text>
-                    <TextInput placeholder="Senha" secureTextEntry={true} style={{marginTop: 10, padding: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 5}} />
-                    
-                    <TouchableOpacity>
-                        <Text style={{color: '#007BFF', marginTop: 3, marginBottom: 120, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
-                    </TouchableOpacity>
+            <View></View>
         
-                    <Button title="Entrar"  color={'#B8E891'} />
-                    <View style={styles.separator} />
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 50, alignSelf: 'center'}}> 
+                <Text style={{fontWeight: 700, fontSize: 45, color: '#2BB846'}}>LO</Text><Text style={{ fontWeight: 700, fontSize: 45, color: '#CC191E'}}>GIN</Text>
+            </View>
 
-                    <Text style={{ fontSize: 15, textAlign: 'center', marginTop: 2 }}>
-                        Não tem uma conta?
-                    </Text>
-                    <TouchableOpacity>
-                        <Text style={{color: '#007BFF', marginTop: 3, marginRight: 10, textAlign: "center", fontSize: 25}}>Cadastre-se</Text>
-                    </TouchableOpacity>
+            <View style={styles.separator} />
 
+            <View style={{padding: 30,}}>
 
+                <Text style={{marginTop: 60, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
+                <TextInput placeholder="Matricula" style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
 
-                </View>
+                <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
+                <TextInput placeholder="Senha" secureTextEntry={true} style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
+                
+                <TouchableOpacity>
+                    <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
+                </TouchableOpacity>
+
+                <Button title="Entrar"  color={'#B8E891'} />
+
+                <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
+                <TouchableOpacity>
+                    <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
+                </TouchableOpacity>
+
+            </View>
+
 
         </View>
         </>
