@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { Cat } from "@/components/Cat";
 import { useRouter } from "expo-router";
-
 
 const styles = StyleSheet.create({
     container: {
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
         gap: 12,
     },*/
 })
-
 
 export default function App() {
 
