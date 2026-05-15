@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Cat } from "@/components/Cat";
+import { useRouter } from "expo-router";
+
 
 const styles = StyleSheet.create({
     container: {
@@ -47,11 +51,16 @@ const styles = StyleSheet.create({
 
 
 export default function App() {
+
+    const router =  useRouter();
+
+    function irTelaCadastro(){
+        router.push('/telaCadastro')
+    }
+
     return (
         <>
         <View style={styles.container}>
-
-            <View></View>
         
             <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 50, alignSelf: 'center'}}> 
                 <Text style={{fontWeight: 700, fontSize: 45, color: '#2BB846'}}>LO</Text><Text style={{ fontWeight: 700, fontSize: 45, color: '#CC191E'}}>GIN</Text>
@@ -59,19 +68,19 @@ export default function App() {
 
             <View style={styles.separator} />
 
-            <View style={{padding: 30,}}>
+            <View style={{padding: 30}}>
 
                 <Text style={{marginTop: 60, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
                 <TextInput placeholder="Matricula" style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
 
                 <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
                 <TextInput placeholder="Senha" secureTextEntry={true} style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
-                
+
                 <TouchableOpacity>
                     <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
                 </TouchableOpacity>
 
-                <Button title="Entrar"  color={'#B8E891'} />
+                <Button onPress={irTelaCadastro} title="Entrar"  color={'#B8E891'} />
 
                 <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
                 <TouchableOpacity>
