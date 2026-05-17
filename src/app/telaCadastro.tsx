@@ -1,7 +1,7 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { defaultConfig } from '@tamagui/config/v5';
-import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
 import { useRouter } from 'expo-router';
 import { Button, createTamagui, Separator, TamaguiProvider } from 'tamagui';
 import "../../global.css";
@@ -31,9 +31,9 @@ export default function telaCadastro() {
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
 
-            <KeyboardAvoidingView behavior={Platform.OS === 'android' ? 'padding' : 'height'} className='flex-1 pt-10 bg-white'>
+            <KeyboardAvoidingView behavior={'padding'} className='flex-1 pt-10 bg-white'>
 
-                <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+                <ScrollView showsVerticalScrollIndicator={false}>
 
                     <View className='ml-8 mt-5'>
                         <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
@@ -48,7 +48,8 @@ export default function telaCadastro() {
                         shadowOffset: { width: 0, height: -2 },
                         shadowOpacity: 0.5,
                         shadowRadius: 5,
-                        elevation: 1,}} className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
+                        elevation: 1,}}
+                        className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
 
                         <Text className='self-center font-bold mt-5 text-[28px]'>Cadastre-se</Text>
 
@@ -105,8 +106,6 @@ export default function telaCadastro() {
             
             </KeyboardAvoidingView>    
 
-
         </TamaguiProvider>
-        
     )
 }
