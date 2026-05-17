@@ -1,14 +1,26 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { defaultConfig } from '@tamagui/config/v5';
-import { Text, View, Image} from "react-native";
+import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import { useRouter } from 'expo-router';
-import { Button, createTamagui, TamaguiProvider } from 'tamagui';
+import { Button, createTamagui, Separator, TamaguiProvider } from 'tamagui';
 import "../../global.css";
 
 
 const config = createTamagui(defaultConfig)
+const styles = StyleSheet.create({
 
+    profileBubble: {
+        width: 150,
+        height: 150,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+        elevation: 8,
+    },
+
+})
 export default function telaCadastro() {
 
     const router = useRouter();
@@ -19,37 +31,79 @@ export default function telaCadastro() {
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
 
-            <View className='flex-1 pt-10 bg-white'>
+            <KeyboardAvoidingView behavior={Platform.OS === 'android' ? 'padding' : 'height'} className='flex-1 pt-10 bg-white'>
 
-                <View className='ml-8 mt-5'>
-                    <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
-                </View>
+                <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
 
-                <View style={{
-                    width: 150,
-                    height: 150,
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 6 },
-                    shadowOpacity: 0.3,
-                    shadowRadius: 10,
-                    elevation: 8,
-                }} className='self-center mt-[50px] border-2 rounded-[100%] bg-white justify-center'>
-                    <Image className='self-center' source={require('@/assets/estudante.png')}></Image>
-                </View>
+                    <View className='ml-8 mt-5'>
+                        <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
+                    </View>
 
-                <View style={{width:'100%', height:'60%',
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: -2 },
-                    shadowOpacity: 0.5,
-                    shadowRadius: 5,
-                    elevation: 1,}} className='bg-white mt-[75px] border shadow rounded-[40px]'>
+                    <View style={styles.profileBubble} className='self-center mt-[50px] border-2 rounded-[100%] bg-white justify-center'>
+                        <Image className='self-center' source={require('@/assets/estudante.png')}></Image>
+                    </View>
 
-                </View>
+                    <View style={{width:'100%', minHeight:'60%',
+                        shadowColor: '#000',
+                        shadowOffset: { width: 0, height: -2 },
+                        shadowOpacity: 0.5,
+                        shadowRadius: 5,
+                        elevation: 1,}} className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
+
+                        <Text className='self-center font-bold mt-5 text-[28px]'>Cadastre-se</Text>
+
+                        <View className='pt-6 mb-3 flex-row items-center justify-center'>
+
+                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
+                                <Text className='font-bold self-center text-[28px]'>1</Text>
+                            </View>
+
+                            <Separator borderWidth={1} borderColor={"#858585"}></Separator>
+
+                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
+                                <Text className='font-bold self-center text-[28px]'>2</Text>
+                            </View>
+
+                            <Separator borderWidth={1} borderColor={"#858585"}></Separator>
+
+                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
+                                <Text className='font-bold self-center text-[28px]'>3</Text>
+                            </View>
+                        </View>
+
+                        <View className='flex-row justify-between mb-7'>
+                            <Text className='text-center font-bold w-[65px]'>Dados Pessoais</Text>
+                            <View className='items-center'><Text className='text-center w-[65px]'>Dados</Text><Text className='text-center'>Academicos</Text></View>
+                            
+                            <Text className='text-center w-[65px]'>Dados de Login</Text>
+                        </View>
+
+                        <Text className='font-bold text-[18px] mb-3'>Nome Completo</Text>
+                        
+                        <TextInput placeholder='Nome' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px] mb-4'></TextInput>
+
+                        <View className='flex-row gap-6 mb-6'>
+                            <View>
+                                <Text className='font-bold text-[18px] mb-2'>CPF</Text>
+                                <TextInput placeholder='CPF' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px] w-[150px]'></TextInput>
+                            </View>
+
+                            <View>
+                                <Text className='font-bold text-[18px] mb-2'>Data de Nascimento</Text>
+                                <TextInput placeholder='DD/MM/AAAA' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px]'></TextInput>
+                            </View>
+                        </View>
+                        
+                        <TouchableOpacity onPress={Voltar}>
+                            <Text className='self-center font-bold text-[24px] underline'>Continuar</Text>
+                        </TouchableOpacity>
+
+                    </View>
 
                 
-                
-                
-            </View>
+                </ScrollView>
+            
+            </KeyboardAvoidingView>    
 
 
         </TamaguiProvider>
