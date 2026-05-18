@@ -1,5 +1,6 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useFonts, Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sora';
 import { defaultConfig } from '@tamagui/config/v5';
 import { Text, View, Image, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
 import { useRouter } from 'expo-router';
@@ -24,6 +25,9 @@ const styles = StyleSheet.create({
 })
 export default function telaCadastro() {
 
+    let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
+    if (!fontsLoaded) return null;
+
     const router = useRouter();
 
     function Voltar(){
@@ -47,32 +51,32 @@ export default function telaCadastro() {
                     <View style={{width:'100%', minHeight:'60%'}}
                         className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
 
-                        <Text className='self-center font-bold mt-5 text-[28px]'>Cadastre-se</Text>
+                        <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center mt-5 text-[28px]'>Cadastre-se</Text>
 
                         <View className='pt-6 mb-3 flex-row items-center justify-center'>
 
                             <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
-                                <Text className='font-bold self-center text-[28px]'>1</Text>
+                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>1</Text>
                             </View>
 
                             <Separator borderWidth={1} borderColor={"#858585"}></Separator>
 
                             <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
-                                <Text className='font-bold self-center text-[28px]'>2</Text>
+                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>2</Text>
                             </View>
 
                             <Separator borderWidth={1} borderColor={"#858585"}></Separator>
 
                             <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
-                                <Text className='font-bold self-center text-[28px]'>3</Text>
+                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>3</Text>
                             </View>
                         </View>
 
                         <View className='flex-row justify-between mb-7'>
-                            <Text className='text-center font-bold w-[65px]'>Dados Pessoais</Text>
-                            <View className='items-center'><Text className='text-center w-[65px]'>Dados</Text><Text className='text-center'>Academicos</Text></View>
+                            <Text style={{fontFamily: 'Sora_600SemiBold'}} className='text-center w-[65px]'>Dados Pessoais</Text>
+                            <View className='items-center'><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados</Text><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center'>Academicos</Text></View>
                             
-                            <Text className='text-center w-[65px]'>Dados de Login</Text>
+                            <Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados de Login</Text>
                         </View>
 
                         <View className='mb-5'>
@@ -86,7 +90,7 @@ export default function telaCadastro() {
                         </View>
                         
                         <TouchableOpacity onPress={Voltar}>
-                            <Text className='self-center font-bold text-[24px] underline'>Continuar</Text>
+                            <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
                         </TouchableOpacity>
 
                     </View>

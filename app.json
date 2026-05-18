@@ -31,7 +31,8 @@
       "favicon": "./src/assets/Logo_bus_background.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
