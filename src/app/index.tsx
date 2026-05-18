@@ -1,5 +1,8 @@
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { defaultConfig } from '@tamagui/config/v5';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useRouter } from "expo-router";
+import "../../global.css";
+import { createTamagui, Button, TamaguiProvider, Input } from 'tamagui';
 
 const styles = StyleSheet.create({
     container: {
@@ -47,6 +50,8 @@ const styles = StyleSheet.create({
     },*/
 })
 
+const config = createTamagui(defaultConfig)
+
 export default function App() {
 
     const router =  useRouter();
@@ -56,38 +61,39 @@ export default function App() {
     }
 
     return (
-        <>
-        <View style={styles.container}>
-        
-            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 50, alignSelf: 'center'}}> 
-                <Text style={{fontWeight: 700, fontSize: 45, color: '#2BB846'}}>LO</Text><Text style={{ fontWeight: 700, fontSize: 45, color: '#CC191E'}}>GIN</Text>
+        <TamaguiProvider config={config} defaultTheme={'light'}>
+
+            <View style={styles.container}>
+            
+                <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 50, alignSelf: 'center'}}> 
+                    <Text style={{fontWeight: 700, fontSize: 45, color: '#2BB846'}}>LO</Text><Text style={{ fontWeight: 700, fontSize: 45, color: '#CC191E'}}>GIN</Text>
+                </View>
+
+                <View style={styles.separator} />
+
+                <View style={{padding: 30}}>
+
+                    <Text style={{marginTop: 60, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
+                    <Input border='none' bg={'#F5F5F5'} rounded={18} height={56} placeholder='Matricula'></Input>
+
+                    <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
+                    <Input border='none' bg={'#F5F5F5'} rounded={18} height={56} placeholder='Senha'></Input>
+
+                    <TouchableOpacity>
+                        <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
+                    </TouchableOpacity>
+
+                    <Button rounded={25} bg={'#B8E891'} style={{ color: '#FFFFFF' }}><Text className='text-[22px] font-bold'>Entrar</Text></Button>
+
+                    <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
+                    <TouchableOpacity onPress={irTelaCadastro}>
+                        <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
+                    </TouchableOpacity>
+
+                </View>
+
             </View>
 
-            <View style={styles.separator} />
-
-            <View style={{padding: 30}}>
-
-                <Text style={{marginTop: 60, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Matricula</Text>
-                <TextInput placeholder="Matricula" style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
-
-                <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
-                <TextInput placeholder="Senha" secureTextEntry={true} style={{padding: 13, borderRadius: 12, backgroundColor: '#F5F5F5'}} />
-
-                <TouchableOpacity>
-                    <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
-                </TouchableOpacity>
-
-                <Button title="Entrar" color={'#B8E891'} />
-
-                <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
-                <TouchableOpacity onPress={irTelaCadastro}>
-                    <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
-                </TouchableOpacity>
-
-            </View>
-
-
-        </View>
-        </>
+        </TamaguiProvider>
     );
 };

@@ -1,10 +1,11 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { defaultConfig } from '@tamagui/config/v5';
-import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
+import { Text, View, Image, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
 import { useRouter } from 'expo-router';
 import { Button, createTamagui, Separator, TamaguiProvider } from 'tamagui';
 import "../../global.css";
+import SignInput from '@/components/SignInput';
 
 
 const config = createTamagui(defaultConfig)
@@ -43,12 +44,7 @@ export default function telaCadastro() {
                         <Image className='self-center' source={require('@/assets/estudante.png')}></Image>
                     </View>
 
-                    <View style={{width:'100%', minHeight:'60%',
-                        shadowColor: '#000',
-                        shadowOffset: { width: 0, height: -2 },
-                        shadowOpacity: 0.5,
-                        shadowRadius: 5,
-                        elevation: 1,}}
+                    <View style={{width:'100%', minHeight:'60%'}}
                         className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
 
                         <Text className='self-center font-bold mt-5 text-[28px]'>Cadastre-se</Text>
@@ -79,20 +75,14 @@ export default function telaCadastro() {
                             <Text className='text-center w-[65px]'>Dados de Login</Text>
                         </View>
 
-                        <Text className='font-bold text-[18px] mb-3'>Nome Completo</Text>
-                        
-                        <TextInput placeholder='Nome' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px] mb-4'></TextInput>
+                        <View className='mb-5'>
+                            <SignInput label='Nome Completo' placeholder='Nome'/>
+                        </View>
 
                         <View className='flex-row gap-6 mb-6'>
-                            <View>
-                                <Text className='font-bold text-[18px] mb-2'>CPF</Text>
-                                <TextInput placeholder='CPF' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px] w-[150px]'></TextInput>
-                            </View>
+                            <SignInput label='CPF' placeholder='CPF' width={150}/>
 
-                            <View>
-                                <Text className='font-bold text-[18px] mb-2'>Data de Nascimento</Text>
-                                <TextInput placeholder='DD/MM/AAAA' className='bg-[#D9D9D943] border border-[#85858550] rounded-[18px] p-4 ml-[-5px]'></TextInput>
-                            </View>
+                            <SignInput label='Data de Nascimento' placeholder='DD/MM/AAAA'/>
                         </View>
                         
                         <TouchableOpacity onPress={Voltar}>
