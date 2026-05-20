@@ -76,10 +76,10 @@ export default function App() {
                     <Text style={{textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
                 </TouchableOpacity>
 
-                <Button onPress={irTelaCadastro} title="Entrar"  color={'#B8E891'} />
+                <Button title="Entrar"  color={'#B8E891'} />
 
                 <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity  onPress={irTelaCadastro}>
                     <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
                 </TouchableOpacity>
 
