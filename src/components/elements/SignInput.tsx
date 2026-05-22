@@ -1,6 +1,6 @@
 import { Text, TextInput, View } from "react-native"
 import { useFonts, Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sora';
-import "../../global.css"
+import "../../../global.css"
 
 export default function SignInput (props : {label : string, placeholder : string, width?: number}) {
 

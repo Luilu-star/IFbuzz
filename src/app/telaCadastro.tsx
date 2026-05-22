@@ -1,38 +1,22 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { useFonts, Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sora';
+import { Etapa1, Etapa2, Etapa3, Etapa4 } from "../components/pages/Cadastro/EtapasEstudante";
+import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
 import { defaultConfig } from '@tamagui/config/v5';
-import { Text, View, Image, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
-import { useRouter } from 'expo-router';
-import { Button, createTamagui, Separator, TamaguiProvider } from 'tamagui';
+import { KeyboardAvoidingView, ScrollView } from "react-native";
+import { createTamagui, TamaguiProvider } from 'tamagui';
+import CadastroHeader from '../components/pages/Cadastro/Header';
+import { useState } from 'react';
 import "../../global.css";
-import SignInput from '@/components/SignInput';
 
 
 const config = createTamagui(defaultConfig)
-const styles = StyleSheet.create({
 
-    profileBubble: {
-        width: 150,
-        height: 150,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.3,
-        shadowRadius: 10,
-        elevation: 8,
-    },
-
-})
 export default function telaCadastro() {
+
+    const [Etapa, SetEtapa] = useState(1)
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
 
-    const router = useRouter();
-
-    function Voltar(){
-        router.push("/");
-    }
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
 
@@ -40,61 +24,17 @@ export default function telaCadastro() {
 
                 <ScrollView showsVerticalScrollIndicator={false}>
 
-                    <View className='ml-8 mt-5'>
-                        <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
-                    </View>
+                    <CadastroHeader />
 
-                    <View style={styles.profileBubble} className='self-center mt-[50px] border-2 rounded-[100%] bg-white justify-center'>
-                        <Image className='self-center' source={require('@/assets/estudante.png')}></Image>
-                    </View>
-
-                    <View style={{width:'100%', minHeight:'60%'}}
-                        className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
-
-                        <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center mt-5 text-[28px]'>Cadastre-se</Text>
-
-                        <View className='pt-6 mb-3 flex-row items-center justify-center'>
-
-                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
-                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>1</Text>
-                            </View>
-
-                            <Separator borderWidth={1} borderColor={"#858585"}></Separator>
-
-                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
-                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>2</Text>
-                            </View>
-
-                            <Separator borderWidth={1} borderColor={"#858585"}></Separator>
-
-                            <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
-                                <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>3</Text>
-                            </View>
-                        </View>
-
-                        <View className='flex-row justify-between mb-7'>
-                            <Text style={{fontFamily: 'Sora_600SemiBold'}} className='text-center w-[65px]'>Dados Pessoais</Text>
-                            <View className='items-center'><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados</Text><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center'>Academicos</Text></View>
-                            
-                            <Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados de Login</Text>
-                        </View>
-
-                        <View className='mb-5'>
-                            <SignInput label='Nome Completo' placeholder='Nome'/>
-                        </View>
-
-                        <View className='flex-row gap-6 mb-6'>
-                            <SignInput label='CPF' placeholder='CPF' width={150}/>
-
-                            <SignInput label='Data de Nascimento' placeholder='DD/MM/AAAA'/>
-                        </View>
-                        
-                        <TouchableOpacity onPress={Voltar}>
-                            <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
+                    {Etapa == 1 && (
+                        <Etapa1 SetEtapa={SetEtapa} />
+                    ) || Etapa == 2 && (
+                        <Etapa2 SetEtapa={SetEtapa} />
+                    ) || Etapa == 3 && (
+                        <Etapa3 SetEtapa={SetEtapa} />
+                    ) || Etapa == 4 && (
+                        <Etapa4 SetEtapa={SetEtapa} />
+                    )}
                 
                 </ScrollView>
             
