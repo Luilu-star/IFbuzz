@@ -1,5 +1,5 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { Etapa1, Etapa2, Etapa3, Etapa4 } from "../components/pages/Cadastro/EtapasEstudante";
+import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
 import { defaultConfig } from '@tamagui/config/v5';
 import { Text, View, StyleSheet, Touchable, TouchableOpacity } from "react-native";
 import { useRouter } from 'expo-router';
@@ -88,6 +88,5 @@ export default function telaCadastro() {
             </View>
 
         </TamaguiProvider>
-        
     )
 }
