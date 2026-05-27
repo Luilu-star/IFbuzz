@@ -82,11 +82,12 @@ export default function App() {
                     <Text style={{marginTop: 45, marginBottom: 10, fontWeight: 'bold', fontSize: 20}}>Senha</Text>
                     <Input border='none' bg={'#F5F5F5'} rounded={18} height={56} placeholder='Senha'></Input>
 
-                    <TouchableOpacity>
-                        <Text style={{fontFamily: 'Sora_500Medium', textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
-                    </TouchableOpacity>
+                <Button title="Entrar"  color={'#B8E891'} />
 
-                    <Button rounded={25} bg={'#B8E891'} style={{ color: '#FFFFFF' }}><Text style={{fontSize: 22, fontFamily: 'Sora_600SemiBold'}}>Entrar</Text></Button>
+                <Text style={{fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
+                <TouchableOpacity  onPress={irTelaCadastro}>
+                    <Text style={{fontSize: 20, color: '#007BFF', textDecorationLine: 'underline', marginBottom: 120, alignSelf: 'center', fontWeight: 500 }}>Cadastre-se</Text>
+                </TouchableOpacity>
 
                     <Text style={{fontFamily: 'Sora_500Medium',fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
                     <TouchableOpacity onPress={irTelaCadastro}>
