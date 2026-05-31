@@ -3,9 +3,16 @@ import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFon
 import { Text, TouchableOpacity, View } from "react-native";
 import { Separator } from 'tamagui';
 import "../../../../../global.css";
+import { useRouter } from 'expo-router';
 
 
 export default function Etapa4(props : {SetEtapa: (placeholder : number) => void}) {
+
+    const router = useRouter();
+
+    function Finalizar() {
+        router.push('/Auth/FinalE');
+    }
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
@@ -53,7 +60,7 @@ export default function Etapa4(props : {SetEtapa: (placeholder : number) => void
                 <SignInput label='Confir. de senha' placeholder='Confir. de senha' width={160}/>
             </View>
             
-            <TouchableOpacity onPress={() => props.SetEtapa(1)}>
+            <TouchableOpacity onPress={() => Finalizar()}>
                 <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
             </TouchableOpacity>
 

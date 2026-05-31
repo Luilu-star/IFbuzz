@@ -34,7 +34,7 @@ export default function CadastroHeader() {
                 <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
             </View>
 
-            <View style={styles.profileBubble} className='self-center mt-[50px] border-2 rounded-[100%] bg-white justify-center'>
+            <View style={styles.profileBubble} className='self-center mt-[60px] border-2 rounded-[100%] bg-white justify-center'>
                 <Image className='self-center' source={require('@/assets/estudante.png')}></Image>
             </View>
         </>
