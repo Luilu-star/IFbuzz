@@ -4,7 +4,7 @@ import { useFonts, Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bo
 import { View, Image, StyleSheet,} from "react-native";
 import { useRouter } from 'expo-router';
 import { Button } from 'tamagui';
-import "../../../../global.css";
+import "../../../../../global.css";
 
 
 const styles = StyleSheet.create({
@@ -12,11 +12,7 @@ const styles = StyleSheet.create({
     profileBubble: {
         width: 150,
         height: 150,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.3,
-        shadowRadius: 10,
-        elevation: 8,
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
     },
 
 })
@@ -29,7 +25,7 @@ export default function CadastroHeader() {
     const router = useRouter();
 
     function Voltar(){
-        router.push("/");
+        router.back();
     }
 
     return (

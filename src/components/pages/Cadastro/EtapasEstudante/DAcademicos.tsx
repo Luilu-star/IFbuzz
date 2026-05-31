@@ -5,7 +5,7 @@ import { Separator } from 'tamagui';
 import "../../../../../global.css";
 
 
-export default function Etapa2(props : {SetEtapa: (placeholder : number) => void}) {
+export default function Etapa3(props : {SetEtapa: (placeholder : number) => void}) {
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
@@ -13,19 +13,19 @@ export default function Etapa2(props : {SetEtapa: (placeholder : number) => void
     return (
 
         <View style={{width:'100%', minHeight:'60%'}}
-            className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
+            className='bg-white mt-[75px] border-2 shadow rounded-[40px] pl-8 pr-8'>
 
             <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center mt-5 text-[28px]'>Cadastre-se</Text>
 
             <View className='pt-6 mb-3 flex-row items-center justify-center'>
 
-                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
+                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
                     <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>1</Text>
                 </View>
 
                 <Separator borderWidth={1} borderColor={"#858585"}></Separator>
 
-                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
+                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
                     <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>2</Text>
                 </View>
 
@@ -43,20 +43,17 @@ export default function Etapa2(props : {SetEtapa: (placeholder : number) => void
                 <Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados de Login</Text>
             </View>
 
-            <View className='flex-row mb-5 gap-7'>
-                <SignInput label='Cidade' placeholder='Cidade' width={150}/>
-
-                <SignInput label='Bairro' placeholder='Bairro' width={160}/>
-
+            <View className='mb-5'>
+                <SignInput label='Matricula' placeholder='Matricula'/>
             </View>
 
             <View className='flex-row gap-6 mb-6'>
-                <SignInput label='Rua' placeholder='Rua' width={240}/>
+                <SignInput label='Turno' placeholder='Turno' width={150}/>
 
-                <SignInput label='Nº' placeholder='Nº' width={70}/>
+                <SignInput label='Curso' placeholder='Curso' width={160}/>
             </View>
             
-            <TouchableOpacity onPress={() => props.SetEtapa(3)}>
+            <TouchableOpacity onPress={() => props.SetEtapa(4)}>
                 <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
             </TouchableOpacity>
 

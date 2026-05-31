@@ -1,0 +1,5 @@
+export { default as DPessoaisM } from './DPessoaisM'
+export { default as DEndereço } from './DEndereço'
+export { default as DLoginM } from './DLoginM'
+export { default as DLoginM2 } from './DLoginM2'
+export { default as CadastroHeaderM } from './Header'

@@ -5,7 +5,7 @@ import { Separator } from 'tamagui';
 import "../../../../../global.css";
 
 
-export default function Etapa4(props : {SetEtapa: (placeholder : number) => void}) {
+export default function Etapa2(props : {SetEtapa: (placeholder : number) => void}) {
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
@@ -13,7 +13,7 @@ export default function Etapa4(props : {SetEtapa: (placeholder : number) => void
     return (
 
         <View style={{width:'100%', minHeight:'60%'}}
-            className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
+            className='bg-white mt-[75px] border-2 shadow rounded-[40px] pl-8 pr-8'>
 
             <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center mt-5 text-[28px]'>Cadastre-se</Text>
 
@@ -25,35 +25,38 @@ export default function Etapa4(props : {SetEtapa: (placeholder : number) => void
 
                 <Separator borderWidth={1} borderColor={"#858585"}></Separator>
 
-                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
+                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
                     <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>2</Text>
                 </View>
 
                 <Separator borderWidth={1} borderColor={"#858585"}></Separator>
 
-                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E891]'>
+                <View style={{width: 55, height: 55}} className='border-[2.5px] rounded-[100%] justify-center bg-[#B8E89135]'>
                     <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[28px]'>3</Text>
                 </View>
             </View>
 
             <View className='flex-row justify-between mb-7'>
                 <Text style={{fontFamily: 'Sora_600SemiBold'}} className='text-center w-[65px]'>Dados Pessoais</Text>
-                <View className='items-center'><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados</Text><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center'>Academicos</Text></View>
+                <View className='items-center'><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[70px]'>Dados de</Text><Text style={{fontFamily: 'Sora_500Medium'}} className='text-center'>Endereço</Text></View>
                 
                 <Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados de Login</Text>
             </View>
 
-            <View className='mb-5'>
-                <SignInput label='Email' placeholder='Email'/>
+            <View className='flex-row mb-5 gap-7'>
+                <SignInput label='Cidade' placeholder='Cidade' width={150}/>
+
+                <SignInput label='Bairro' placeholder='Bairro' width={160}/>
+
             </View>
 
             <View className='flex-row gap-6 mb-6'>
-                <SignInput label='Senha' placeholder='Senha' width={150}/>
+                <SignInput label='Rua' placeholder='Rua' width={240}/>
 
-                <SignInput label='Confir. de senha' placeholder='Confir. de senha' width={160}/>
+                <SignInput label='Nº' placeholder='Nº' width={70}/>
             </View>
             
-            <TouchableOpacity onPress={() => props.SetEtapa(1)}>
+            <TouchableOpacity onPress={() => props.SetEtapa(3)}>
                 <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
             </TouchableOpacity>
 

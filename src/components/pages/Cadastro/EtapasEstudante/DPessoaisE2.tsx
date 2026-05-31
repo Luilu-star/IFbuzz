@@ -5,7 +5,7 @@ import { Separator } from 'tamagui';
 import "../../../../../global.css";
 
 
-export default function Etapa1(props : {SetEtapa: (placeholder : number) => void}) {
+export default function Etapa2(props : {SetEtapa: (placeholder : number) => void}) {
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
@@ -13,7 +13,7 @@ export default function Etapa1(props : {SetEtapa: (placeholder : number) => void
     return (
 
         <View style={{width:'100%', minHeight:'60%'}}
-            className='bg-white mt-[75px] border shadow rounded-[40px] pl-8 pr-8'>
+            className='bg-white mt-[75px] border-2 shadow rounded-[40px] pl-8 pr-8'>
 
             <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center mt-5 text-[28px]'>Cadastre-se</Text>
 
@@ -43,17 +43,20 @@ export default function Etapa1(props : {SetEtapa: (placeholder : number) => void
                 <Text style={{fontFamily: 'Sora_500Medium'}} className='text-center w-[65px]'>Dados de Login</Text>
             </View>
 
-            <View className='mb-5'>
-                <SignInput label='Nome Completo' placeholder='Nome'/>
+            <View className='flex-row mb-5 gap-7'>
+                <SignInput label='Cidade' placeholder='Cidade' width={150}/>
+
+                <SignInput label='Bairro' placeholder='Bairro' width={160}/>
+
             </View>
 
             <View className='flex-row gap-6 mb-6'>
-                <SignInput label='CPF' placeholder='CPF' width={150}/>
+                <SignInput label='Rua' placeholder='Rua' width={240}/>
 
-                <SignInput label='Data de Nascimento' placeholder='DD/MM/AAAA'/>
+                <SignInput label='Nº' placeholder='Nº' width={70}/>
             </View>
             
-            <TouchableOpacity onPress={() => props.SetEtapa(2)}>
+            <TouchableOpacity onPress={() => props.SetEtapa(3)}>
                 <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[20px] underline'>Continuar</Text>
             </TouchableOpacity>
 
