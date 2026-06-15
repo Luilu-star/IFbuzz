@@ -63,6 +63,11 @@ export default function App() {
         router.push('/telaCadastro')
     }
 
+     function irTelaMainEstudante(){
+        router.push('/content/mainEstudante')
+    }
+
+
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
 
@@ -86,7 +91,7 @@ export default function App() {
                         <Text style={{fontFamily: 'Sora_500Medium', textDecorationLine: 'underline', marginTop: 10, marginBottom: 150, marginRight: 10, alignSelf: 'flex-end'}}>Esqueci minha senha</Text>
                     </TouchableOpacity>
 
-                    <Button rounded={25} bg={'#B8E891'} style={{ color: '#FFFFFF' }}><Text style={{fontSize: 22, fontFamily: 'Sora_600SemiBold'}}>Entrar</Text></Button>
+                    <Button onPress={irTelaMainEstudante} rounded={25} bg={'#B8E891'} style={{ color: '#FFFFFF' }}><Text style={{fontSize: 22, fontFamily: 'Sora_600SemiBold'}}>Entrar</Text></Button>
 
                     <Text style={{fontFamily: 'Sora_500Medium',fontSize: 16, marginTop: 40, marginBottom: 5, alignSelf: 'center', fontWeight: 500}}>Não tem uma conta?</Text>
                     <TouchableOpacity onPress={irTelaCadastro}>
