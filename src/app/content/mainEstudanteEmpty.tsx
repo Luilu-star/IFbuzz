@@ -80,7 +80,7 @@ export default function telaCadastro() {
                      </View>
                    
                     <View> 
-                        
+                        <Text style={{color: '#555555', fontSize:25, textAlign:'center', marginTop: 60, fontFamily:'Sora_600SemiBold'   }}> Nenhum aviso foi           informado.</Text>
                     </View>
 
                 </View>
@@ -117,23 +117,9 @@ export default function telaCadastro() {
                         <FontAwesomeIcon icon={faStar} size={20} color="#000"/>
                      </View>
                    
-                    <View style={{flexDirection: 'row', alignContent: 'space-between', gap: 30}}> 
-                        <View style={{marginTop: 10, marginLeft: 20}}>
-                            <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold'}}>Lavras da mangabeira - Cedro </Text> 
-                            <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold', marginTop: 5}}>06:10 - 07:00</Text>
-                        </View>
-
-                        <View style={{ marginTop: 30, justifyContent: 'center',}}> 
-                            <Avatar circular size="$6" style={{marginTop: 6, }}>
-                                <Avatar.Image src='http://picsum.photos/200/300' />
-                                <Avatar.Fallback background='#858585' />
-                                <FontAwesomeIcon icon={faUser} size={20} color="#3A3A3A"/>
-                            </Avatar>
-                            <Text> Josino </Text>
-                        </View>
-
-                        
-
+                    <View style={{justifyContent: 'space-between', alignItems: 'center'}}> 
+                        <Text style={{color: '#555555', fontSize:18, textAlign:'center', marginTop: 60, fontFamily: 'Sora_600SemiBold'  }}> Você não favoritou nenhuma            rota ainda.</Text>
+                        <FontAwesomeIcon icon={faLocationDot} size={30} style={{marginTop:10}} color='#555555'/>                        
                     </View>
                 </View>
 
