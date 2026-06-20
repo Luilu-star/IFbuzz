@@ -2,13 +2,15 @@ import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFon
 import { defaultConfig } from '@tamagui/config/v5';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { TextInput, View, Text, KeyboardAvoidingView, ScrollView} from "react-native";
-import { Avatar, Button, createTamagui, TamaguiProvider, PortalProvider} from 'tamagui';
+import { Avatar, Button, createTamagui, TamaguiProvider} from 'tamagui';
 import "../../../global.css";
 import { faMagnifyingGlass, faClock, faBell, faBus, faCheckCircle, faCalendar,faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import SelectTurno from '@/components/elements/SelectTurno';
 import AvisoCard from '@/components/elements/cardAvisos';
+import { router } from 'expo-router';
+
 
 const config = createTamagui(defaultConfig)
 
@@ -86,7 +88,7 @@ export default function telaCadastro() {
 
                     </View>
 
-                <View style={{backgroundColor: '#FFFFFF', alignContent: 'center', height: 244,marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
+                <View style={{backgroundColor: '#FFFFFF', alignContent: 'center',marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
                      
                      <View style={{  backgroundColor: '#DEF0DE', borderTopLeftRadius:10, borderTopRightRadius:10, height:45, paddingHorizontal: 12, flexDirection:'row', justifyContent: 'space-between', alignItems:'center'}}>
                         <Text style={{fontSize: 20, fontWeight: 'bold', fontFamily: 'Sora_700Bold'}}> Avisos </Text>
@@ -95,8 +97,7 @@ export default function telaCadastro() {
                    
                     <View> 
                         {avisos.map((aviso) => (
-                            <AvisoCard key={aviso.id} id={aviso.id}titulo={aviso.titulo} conteudo={aviso.conteudo} data={aviso.data }/>))}
-                        
+                            <AvisoCard key={aviso.id} id={aviso.id}titulo={aviso.titulo} conteudo={aviso.conteudo} data={aviso.data } onPress={() => {router.push('/content/telasEstudante/avisosHistorico');}}/>))}   
                     </View>
 
                 </View>
