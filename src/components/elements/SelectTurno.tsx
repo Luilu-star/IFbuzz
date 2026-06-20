@@ -11,7 +11,7 @@ export default function SelectTurno() {
         width: 120,
         height: 40, 
         borderColor: '#CCC',
-        borderRadius: 8,
+        borderRadius: 10,
         justifyContent: 'center',
         backgroundColor: '#DEF0DE',
       }}

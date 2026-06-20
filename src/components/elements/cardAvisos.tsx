@@ -1,18 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Pressable} from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBus, faBusAlt, faBusinessTime, faBusSide, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { AvisoItem } from '../modules/card';
 
-type Props = AvisoItem;
+type Props = AvisoItem & {
+  onPress?: () => void;
+};
 
 export default function AvisoCard({
   titulo,
   conteudo,
   data,
+  onPress
 }: Props) {
   return (
-    <View style={{flexDirection: 'row', paddingHorizontal: 12, paddingVertical: 10, borderBottomWidth: 1,borderBottomColor: '#E5E5E5', position: 'relative'}}>
+    <Pressable  onPress={onPress} style={{flexDirection: 'row', paddingHorizontal: 12, paddingVertical: 10, borderBottomWidth: 1,borderBottomColor: '#E5E5E5'}}>
         
         <View style={{ flex: 1, marginTop: 5 }}>
             <Text  style={{fontSize: 16,fontWeight: '700'}}>
@@ -35,6 +38,6 @@ export default function AvisoCard({
         <FontAwesomeIcon icon={faCircleExclamation} size={30} color="#000"/>
     </View>
 
-</View>
+</Pressable>
 
   );}

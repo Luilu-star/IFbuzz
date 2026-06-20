@@ -1,4 +1,3 @@
-
 import { Etapa1, Etapa2, Etapa3, Etapa4 } from "../components/pages/Cadastro/EtapasEstudante";
 import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
 import { defaultConfig } from '@tamagui/config/v5';

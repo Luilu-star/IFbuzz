@@ -9,7 +9,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 
 
-
 const config = createTamagui(defaultConfig)
 
 export default function telaCadastro() {
