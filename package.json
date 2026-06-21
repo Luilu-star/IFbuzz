@@ -17,6 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-native-fontawesome": "^1.0.0",
+    "@react-native-picker/picker": "^2.11.4",
     "@react-navigation/native": "^7.1.8",
     "@supabase/supabase-js": "^2.108.2",
     "@tamagui/config": "^2.3.1",
