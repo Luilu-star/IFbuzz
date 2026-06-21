@@ -26,7 +26,9 @@ export default function AvisoCard({
                 <Text style={{ fontWeight: '700' }}>
                     Conteúdo:
                 </Text>{' '}
-                    {conteudo}
+                    {conteudo.length > 50
+                        ? conteudo.substring(0,50) + '...'
+                        : conteudo}
             </Text>
 
             <Text style={{position: 'absolute',right: 2,bottom:-10, color: '#777', fontSize: 11}}>
