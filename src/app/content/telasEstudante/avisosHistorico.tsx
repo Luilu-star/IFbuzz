@@ -8,19 +8,19 @@ import { faMagnifyingGlass, faArrowLeft} from '@fortawesome/free-solid-svg-icons
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
-
+import { avisos } from '@/components/modules/avisos';
 
 const config = createTamagui(defaultConfig)
 
-export default function telaCadastro() {
+export default function telaAvisosHistorico() {
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
 
+    
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
             
-        
             <KeyboardAvoidingView behavior={'padding'} className='flex-1 pt-10 bg-white'>
 
                 <ScrollView showsVerticalScrollIndicator={false}>
@@ -48,11 +48,51 @@ export default function telaCadastro() {
                                 Tela Inicial
                             </Text>
                         </Pressable>
-
                     </View>
-                    
-            
 
+                    <View> {avisos.map((aviso) => (
+                        
+                        <View key={aviso.id}style={{ backgroundColor: '#FFFFFF', marginTop: 20, width: 340, marginLeft: 23, borderRadius: 10, padding: 15, elevation: 3, height: 190}}>
+                            <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}> 
+                                <Text style={{fontFamily: 'Sora_700Bold', fontSize: 14, textDecorationLine: 'underline'}}>
+                                  {aviso.titulo}
+                                </Text>
+
+                                <Text style={{ color: '#666', fontSize: 11}}>
+                                  {aviso.data}
+                                </Text>
+
+                            </View>
+
+                        <View style={{ flexDirection: 'row', marginTop: 5, alignItems: 'flex-start',}}> 
+
+                            <Text style={{flex:1,  marginTop: 10 }}>
+                                <Text style={{fontFamily: 'Sora_700Bold', fontSize: 15 }}>
+                                  Conteúdo:
+                            </Text>{' '}
+                                {aviso.conteudo}
+                            </Text>
+
+
+                              <View style={{marginTop: 70,alignItems: 'center',}}>                       
+                                <Avatar circular size="$5" >
+                                    <Avatar.Image src="" />
+                                    <Avatar.Fallback style={{backgroundColor:'#CFCFCF', justifyContent: 'center', alignItems: 'center'}}>
+                                        <FontAwesomeIcon style={{}} icon={faUser} size={25} color="#333" />
+                                    </Avatar.Fallback>
+                                </Avatar>
+
+                              </View>      
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', bottom:5   }}>
+                          <Text style={{fontFamily: 'Sora_700Bold'}}> Rota:</Text> 
+                          <Text style={{fontFamily: 'Sora_500Medium', fontSize: 12}}> Olho d'agua - Cedro </Text>
+                        </View>
+                      </View>
+                           ))}
+                      
+                    </View>
+   
                 </ScrollView>
             
             </KeyboardAvoidingView>    

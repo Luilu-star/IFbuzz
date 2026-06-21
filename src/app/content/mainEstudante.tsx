@@ -10,30 +10,16 @@ import React, { useState, useEffect } from 'react';
 import SelectTurno from '@/components/elements/SelectTurno';
 import AvisoCard from '@/components/elements/cardAvisos';
 import { router } from 'expo-router';
-
+import { avisos } from '@/components/modules/avisos';
 
 const config = createTamagui(defaultConfig)
 
-export default function telaCadastro() {
+export default function telaMainEstudante() {
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     
     const [horaAtual, setHoraAtual] = useState('');
-
-    const avisos = [
-            {
-            id: '1',
-            titulo: 'Problemas no transporte',
-            conteudo: 'Por conta do mal tempo, as estradas estão alagando...',
-            data: '02/03/26 às 05:20',
-            },
-            {
-            id: '2',
-            titulo: 'Problemas no transporte',
-            conteudo: 'Por conta do mal tempo, as estradas estão alagando...',
-            data: '02/03/26 às 05:20',
-            },
-    ];          
+    
 
     useEffect(() => {
         const atualizarHora = () => {
@@ -95,9 +81,9 @@ export default function telaCadastro() {
                         <FontAwesomeIcon icon={faBell} size={20} color="#000"/>
                      </View>
                    
-                    <View> 
-                        {avisos.map((aviso) => (
-                            <AvisoCard key={aviso.id} id={aviso.id}titulo={aviso.titulo} conteudo={aviso.conteudo} data={aviso.data } onPress={() => {router.push('/content/telasEstudante/avisosHistorico');}}/>))}   
+                    <View> {avisos.slice(0, 2).map((aviso) => 
+                        (<AvisoCard key={aviso.id} id={aviso.id} titulo={aviso.titulo} conteudo={aviso.conteudo} data={aviso.data} onPress={() => {
+                            router.push('/content/telasEstudante/avisosHistorico');  }} /> ))} 
                     </View>
 
                 </View>
