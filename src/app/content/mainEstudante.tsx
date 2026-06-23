@@ -91,7 +91,8 @@ export default function telaMainEstudante() {
                 <View style={{marginTop:30, alignItems:'center', flexDirection: 'row', justifyContent: 'center', gap: 35 }}> 
                     
                     <View style={{alignItems:'center', justifyContent:'space-between'}}> 
-                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{ scale: 0.95,}}> 
+                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{ scale: 0.95,}} onPress={() => {
+                            router.push('/content/telasEstudante/buscarRotas'); } }> 
                             <FontAwesomeIcon icon={faBus} size={30} color="#FFFFFF"/>
                         </Button>
                         <Text style={{fontSize: 13, fontFamily: 'Sora_600SemiBold'}}> Rotas</Text>
