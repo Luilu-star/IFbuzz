@@ -38,7 +38,7 @@ export default function Teste() {
 
     function LoginE() {
         router.push({
-            pathname: '/teste',
+            pathname: '/Auth/Login',
             params: {
                 IsEstudante: '1'
             }
