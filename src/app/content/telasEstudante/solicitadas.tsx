@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { TextInput, View, Text, KeyboardAvoidingView, ScrollView, Pressable } from "react-native";
 import { Avatar, Button, createTamagui, TamaguiProvider, Image} from 'tamagui';
 import "../../../../global.css";
-import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot, faTriangleCircleSquare} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
@@ -40,7 +40,7 @@ export default function telaBuscarRotas() {
                                        
                     </View>
                     <View> 
-                        <Pressable onPress={() => router.back()} style={{flexDirection: 'row',alignItems: 'center', marginTop: 30, marginLeft: 20, gap: 8,}}>
+                        <Pressable onPress={() => router.push('/content/mainEstudante')} style={{flexDirection: 'row',alignItems: 'center', marginTop: 30, marginLeft: 20, gap: 8,}}>
                             <FontAwesomeIcon icon={faArrowLeft} size={20} color="#000"/>
                             <Text style={{ fontFamily: 'Sora_700Bold' }}>
                                 Tela Inicial
@@ -51,27 +51,28 @@ export default function telaBuscarRotas() {
 
                         <View style={{flexDirection: 'row', alignItems:'center', marginTop: 25, gap:6, marginLeft: 10, marginRight: 10}}>
 
-                            <Button rounded={3000} border={ '2px solid #ccc'} style={{ height:30, width: 78, backgroundColor: '#FF9292'}}> 
-                                <Text style={{fontFamily:'Sora_700Bold', fontSize: 12, }}>
+                            <Button rounded={3000} style={{ height:30, width: 78, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/buscarRotas');  }}> 
+                                <Text style={{fontFamily:'Sora_400Regular', fontSize: 12, }}>
                                     Todas
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width: 108, backgroundColor: '#FFD6D7'}} onPress={() => {
-                                router.push('/content/telasEstudante/solicitadas');  }}> 
-                                <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
+                            <Button rounded={3000} border={ '2px solid #ccc'} style={{ height:30, width: 112, backgroundColor: '#FF9292'}}> 
+                                <Text style={{fontFamily:'Sora_700Bold', fontSize: 12}}>
                                     Solicitadas
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width: 110, backgroundColor: '#FFD6D7'}}onPress={() => {
-                                router.push('/content/telasEstudante/avisosHistorico');  }}> 
+                            <Button rounded={3000} style={{ height:30, width: 110, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/minhasRotas');  }} > 
                                 <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
                                     Minha rotas 
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width:105, backgroundColor: '#FFD6D7'}}> 
+                            <Button rounded={3000} style={{ height:30, width:105, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/rotaFavorita');  }}> 
                                 <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
                                     Favoritas
                                 </Text>
@@ -81,7 +82,7 @@ export default function telaBuscarRotas() {
                         </View>
                     </ScrollView>
 
-                    <View style={{justifyContent: 'center', backgroundColor: '#fff', alignContent: 'center', height: 185,marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
+                    <View style={{justifyContent: 'center', backgroundColor: '#fff', alignContent: 'center', height: 200,marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
 
                                        
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', gap: 30, }}> 
@@ -97,12 +98,13 @@ export default function telaBuscarRotas() {
                                     <FontAwesomeIcon icon={faClock} size={18} color="#000"/>
                                     <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold'}}> 06:10 - 07:00</Text>     
                                </View>
+                                
+                                <View style={{backgroundColor: '#FFF', borderWidth: 1,borderColor: '#CCC',borderRadius: 10 , height:100, marginTop: 20, width: 220, alignItems:'center', justifyContent: 'space-between'}}>
+                                    <FontAwesomeIcon style={{}} icon={faTriangleCircleSquare} size={30} color="#333" />
+                                    <Text style={{ fontFamily:'Sora_600SemiBold'}}> Aguardando confirmação do motorista...</Text>
+                                </View>
                     
-                                <Button rounded={10} style={{marginTop: 35, width:180, height:55, backgroundColor:'#D4FFB3', shadowColor: '#000', shadowOffset: {width: 0, height:4,},shadowOpacity: 0, shadowRadius: 5, elevation: 5 }}>
-                                    <Text style={{fontSize: 15, fontFamily:'Sora_600SemiBold' }}>Solicitar cadastro </Text>
-                                </Button>
-                    
-                                <View style={{position: 'absolute', right: 30, top: 50, alignItems: 'center',}}>
+                                <View style={{position: 'absolute', right: 20, top: 50, alignItems: 'center',}}>
                                             
                                     <Avatar circular size="$6">
                                         <Avatar.Image src="" />                                               
@@ -110,6 +112,7 @@ export default function telaBuscarRotas() {
                                             <FontAwesomeIcon style={{}} icon={faUser} size={35} color="#333" />
                                         </Avatar.Fallback>
                                     </Avatar>
+
                                     <Text style={{marginTop: 6, fontSize: 14,fontFamily: 'Sora_600SemiBold',}}> Josino</Text>
                                             
                                 </View>
