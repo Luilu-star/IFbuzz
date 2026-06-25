@@ -99,14 +99,16 @@ export default function telaMainEstudante() {
                     </View>
 
                     <View style={{alignItems:'center', justifyContent:'space-between'}}> 
-                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{ scale: 0.95,}}> 
+                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{ scale: 0.95,}}  onPress={() => {
+                            router.push('/content/telasEstudante/presencas');} }>
                             <FontAwesomeIcon icon={faCheckCircle} size={30} color="#FFFFFF"/>
                         </Button>
                         <Text style={{fontSize: 13, fontFamily: 'Sora_600SemiBold'}}> Presenças</Text>
                     </View>
 
                     <View style={{alignItems:'center', justifyContent:'space-between'}}> 
-                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{scale: 0.95,}}> 
+                        <Button style={{height:50, width:80, backgroundColor:'#FA7070' }} pressStyle={{scale: 0.95,}}onPress={() => {
+                            router.push('/content/telasEstudante/calendario');} }>
                             <FontAwesomeIcon icon={faCalendar} size={30} color="#FFFFFF"/>
                         </Button>
                         <Text style={{fontSize: 13, fontFamily: 'Sora_600SemiBold'}}> Calendário</Text>

@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { TextInput, View, Text, KeyboardAvoidingView, ScrollView, Pressable } from "react-native";
 import { Avatar, Button, createTamagui, TamaguiProvider, Image} from 'tamagui';
 import "../../../../global.css";
-import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot, faTriangleCircleSquare} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
+import SelectTurno from '@/components/elements/SelectTurno';
+
 
 const config = createTamagui(defaultConfig)
 
@@ -51,27 +53,28 @@ export default function telaBuscarRotas() {
 
                         <View style={{flexDirection: 'row', alignItems:'center', marginTop: 25, gap:6, marginLeft: 10, marginRight: 10}}>
 
-                            <Button rounded={3000} border={ '2px solid #ccc'} style={{ height:30, width: 78, backgroundColor: '#FF9292'}}> 
+                            <Button rounded={3000} style={{ height:30, width: 78, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/buscarRotas');  }}> 
                                 <Text style={{fontFamily:'Sora_700Bold', fontSize: 12, }}>
                                     Todas
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width: 108, backgroundColor: '#FFD6D7'}} onPress={() => {
-                                router.push('/content/telasEstudante/solicitadas');  }}> 
+                            <Button rounded={3000} style={{ height:30, width: 110, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/solicitadas'); }}> 
                                 <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
                                     Solicitadas
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width: 110, backgroundColor: '#FFD6D7'}}onPress={() => {
-                                router.push('/content/telasEstudante/avisosHistorico');  }}> 
+                            <Button rounded={3000} border={ '2px solid #ccc'} style={{ height:30, width: 112, backgroundColor: '#FF9292'}}> 
                                 <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
                                     Minha rotas 
                                 </Text>
                             </Button>
 
-                            <Button rounded={3000} style={{ height:30, width:105, backgroundColor: '#FFD6D7'}}> 
+                            <Button rounded={3000} style={{ height:30, width:105, backgroundColor: '#FFD6D7'}} onPress={() => {
+                                router.push('/content/telasEstudante/rotaFavorita'); }}> 
                                 <Text style={{fontFamily:'Sora_400Regular', fontSize: 12}}>
                                     Favoritas
                                 </Text>
@@ -80,48 +83,65 @@ export default function telaBuscarRotas() {
                     
                         </View>
                     </ScrollView>
-
-                    <View style={{justifyContent: 'center', backgroundColor: '#fff', alignContent: 'center', height: 185,marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
-
-                                       
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', gap: 30, }}> 
-                                           
-                            <View style={{flex: 1, marginTop: 5, marginLeft:15 }}>
-                                                    
+                    <View style={{backgroundColor: '#fffafa', alignContent: 'center', height: 245,marginTop: 28, width:340, marginLeft:23, borderRadius:10,  shadowColor: '#00000',shadowOffset: { width: 5, height:50  },shadowOpacity: 0.15, shadowRadius: 2, elevation: 3}}>
+                     
+                    <View style={{  backgroundColor: '#FEE5E5', borderTopLeftRadius:10, borderTopRightRadius:10, height:45, paddingHorizontal: 12, flexDirection:'row', justifyContent: 'space-between', alignItems:'center'}}>
+                        <Text style={{fontSize: 20, fontWeight: 'bold', fontFamily: 'Sora_700Bold'}}> Rota favorita </Text>
+                        <FontAwesomeIcon icon={faStar} size={20} color="#000"/>
+                    </View>
+                   
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', gap: 30, }}> 
+                       
+                            <View style={{flex: 1, marginTop: 10, marginLeft:15 }}>
+                                
                                 <View style={{flexDirection: 'row', alignItems: 'center', gap: 6}}> 
                                     <FontAwesomeIcon icon={faLocationDot} size={18} color="#000"/>
-                                    <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold'}}> Lavras da mangabeira - Cedro </Text> 
+                                    <Text style={{fontSize:13, fontFamily:'Sora_600SemiBold'}}> Lavras da mangabeira - Cedro </Text> 
                                 </View>
-                                                    
+                                
                                 <View style={{flexDirection: 'row', alignItems: 'center', gap: 6, marginTop:6}}>
                                     <FontAwesomeIcon icon={faClock} size={18} color="#000"/>
-                                    <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold'}}> 06:10 - 07:00</Text>     
-                               </View>
-                    
-                                <Button rounded={10} style={{marginTop: 35, width:180, height:55, backgroundColor:'#D4FFB3', shadowColor: '#000', shadowOffset: {width: 0, height:4,},shadowOpacity: 0, shadowRadius: 5, elevation: 5 }}>
-                                    <Text style={{fontSize: 15, fontFamily:'Sora_600SemiBold' }}>Solicitar cadastro </Text>
-                                </Button>
-                    
-                                <View style={{position: 'absolute', right: 30, top: 50, alignItems: 'center',}}>
-                                            
-                                    <Avatar circular size="$6">
-                                        <Avatar.Image src="" />                                               
-                                        <Avatar.Fallback style={{backgroundColor:'#CFCFCF', justifyContent: 'center', alignItems: 'center', flex: 1}}>
-                                            <FontAwesomeIcon style={{}} icon={faUser} size={35} color="#333" />
-                                        </Avatar.Fallback>
-                                    </Avatar>
-                                    <Text style={{marginTop: 6, fontSize: 14,fontFamily: 'Sora_600SemiBold',}}> Josino</Text>
-                                            
+                                    <Text style={{fontSize:13, fontFamily:'Sora_600SemiBold'}}> 06:10 - 07:00</Text>     
                                 </View>
-                    
-                            </View> 
-                    
+
+                        <View style={{backgroundColor: '#FFF', borderWidth: 1,borderColor: '#CCC',borderRadius: 10 , height:100, marginTop: 20, width: 240, justifyContent: 'space-between', flexDirection:'row'}}>
+                                
+                                <Text style={{fontFamily:'Sora_600SemiBold', marginTop:5, marginLeft: 10}}>Vou para passar:</Text>
+                                
+                                <View style={{flexDirection: 'row', marginTop: 7, marginRight:5}}>
+                                    <FontAwesomeIcon icon={faCalendar} size={20} color="#000"/>
+                                    <Text style={{fontSize:12, fontFamily:'Sora_600SemiBold'}}> 17/06</Text>     
+                                </View>
+
+                                <View style={{position: 'absolute', bottom: 10, left: 10, flexDirection: 'row', alignItems: 'center', gap: 10}}>
+                                    <View style={{backgroundColor:'#DEF0DE'}}> 
+
+                                        <SelectTurno></SelectTurno>
+                                     </View>
+
+                                    <Button rounded={360}  style={{backgroundColor: '#000',height: 30, width:95 , color:'#FFFFFF'}} pressStyle={{ scale: 0.95 }}> <Text style={{color: '#FFFF', fontSize:10, fontFamily: 'Sora_700Bold', textAlign:'center'}}> Confirmar </Text></Button>
+                                </View>
+
                         </View>
 
-                    </View>
+                        <View style={{position: 'absolute', right: 15, top: 0, alignItems: 'center',}}>
+                            
+                            <Avatar circular size="$6">
+                                <Avatar.Image src="" />
+                                <Avatar.Fallback style={{backgroundColor:'#CFCFCF', justifyContent: 'center', alignItems: 'center', flex: 1}}>
+                                    <FontAwesomeIcon style={{}} icon={faUser} size={35} color="#333" />
+                                </Avatar.Fallback>
+                            </Avatar>
+                            <Text style={{marginTop: 8, fontSize: 14,fontFamily: 'Sora_600SemiBold',}}> Josino</Text>
+                        
+                        </View>
+
+                    </View>  
+
+                </View>
 
                     
-
+</View>
    
                 </ScrollView>
             
