@@ -20,7 +20,7 @@ export default function telaBuscarRotas() {
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
             
-            <KeyboardAvoidingView behavior={'padding'} className='flex-1 pt-10 bg-white'>
+            <KeyboardAvoidingView style={{ paddingTop: 30}} behavior={'padding'} className='flex-1 bg-white'>
 
                 <ScrollView showsVerticalScrollIndicator={false}>
 
