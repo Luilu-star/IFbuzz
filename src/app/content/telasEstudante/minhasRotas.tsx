@@ -49,6 +49,7 @@ export default function telaBuscarRotas() {
                             </Text>
                         </Pressable>
                     </View>
+                    
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
                         <View style={{flexDirection: 'row', alignItems:'center', marginTop: 25, gap:6, marginLeft: 10, marginRight: 10}}>

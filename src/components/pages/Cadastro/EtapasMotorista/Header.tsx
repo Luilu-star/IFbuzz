@@ -35,7 +35,7 @@ export default function CadastroHeader() {
                 <Button onPress={Voltar} unstyled={true}><FontAwesomeIcon size={30} icon={faArrowLeft} /></Button>
             </View>
             
-            <View className='self-center mt-[50px]'>
+            <View className='self-center mt-[60px]'>
                 <Circle style={styles.profileBubble}>
                     <Image source={require("@/assets/icone_motorista.png")} style={{borderWidth: 2, borderRadius: 100, width: 150, height: 150 }} />
                 </Circle>

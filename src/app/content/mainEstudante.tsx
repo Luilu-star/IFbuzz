@@ -1,16 +1,15 @@
-import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
-import { defaultConfig } from '@tamagui/config/v5';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { TextInput, View, Text, KeyboardAvoidingView, ScrollView} from "react-native";
-import { Avatar, Button, createTamagui, TamaguiProvider} from 'tamagui';
-import "../../../global.css";
-import { faMagnifyingGlass, faClock, faBell, faBus, faCheckCircle, faCalendar,faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import React, { useState, useEffect } from 'react';
 import SelectTurno from '@/components/elements/SelectTurno';
 import AvisoCard from '@/components/elements/cardAvisos';
-import { router } from 'expo-router';
 import { avisos } from '@/components/modules/avisos';
+import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
+import { faBell, faBus, faCalendar, faCheckCircle, faClock, faLocationDot, faMagnifyingGlass, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { defaultConfig } from '@tamagui/config/v5';
+import { router } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { KeyboardAvoidingView, ScrollView, Text, TextInput, View } from "react-native";
+import { Avatar, Button, createTamagui, TamaguiProvider } from 'tamagui';
+import "../../../global.css";
 
 const config = createTamagui(defaultConfig)
 
@@ -42,7 +41,7 @@ export default function telaMainEstudante() {
     return (
         <TamaguiProvider config={config} defaultTheme={'light'}>
 
-            <KeyboardAvoidingView behavior={'padding'} className='flex-1 pt-10 bg-white'>
+            <KeyboardAvoidingView behavior={'padding'} style={{ paddingTop: 30 }} className='flex-1 bg-white'>
 
                 <ScrollView showsVerticalScrollIndicator={false}>
 
@@ -51,12 +50,13 @@ export default function telaMainEstudante() {
                   
                   <View style={{ flex:1, backgroundColor:'#D1EEB9', borderRadius: 100, height:45, marginLeft: 1, marginRight:2, marginTop: 8, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center'}}>          
                         <TextInput placeholder="Pesquise pela rota desejada..." style={{flex: 1,color: '#3A3A3A'}}/>
-                        <FontAwesomeIcon icon={faMagnifyingGlass}size={15} color="#000"/>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} size={15} color="#000"/>
             
                    </View>
+                   
                    <View> 
                      <Avatar circular size="$3" style={{marginTop: 6, }}>
-                        <Avatar.Image src='' />
+                        <Avatar.Image src='src/assets/estudante.png' />
                         <Avatar.Fallback background='#858585' />
                           <FontAwesomeIcon icon={faUser} size={20} color="#3A3A3A"/>
                      </Avatar>     
@@ -81,7 +81,8 @@ export default function telaMainEstudante() {
                         <FontAwesomeIcon icon={faBell} size={20} color="#000"/>
                      </View>
                    
-                    <View> {avisos.slice(0, 2).map((aviso) => 
+                    <View> 
+                        {avisos.slice(0, 2).map((aviso) => 
                         (<AvisoCard key={aviso.id} id={aviso.id} titulo={aviso.titulo} conteudo={aviso.conteudo} data={aviso.data} onPress={() => {
                             router.push('/content/telasEstudante/avisosHistorico');  }} /> ))} 
                     </View>

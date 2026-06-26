@@ -1,13 +1,19 @@
-import SignInput from '@/components/elements/SignInput';
 import { Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold, useFonts } from '@expo-google-fonts/sora';
 import { Text, TouchableOpacity, View } from "react-native";
 import { Button, Separator } from 'tamagui';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'expo-router';
 import "../../../../../global.css";
 
 
 export default function Etapa4(props : {SetEtapa: (placeholder : number) => void}) {
+
+    const router = useRouter();
+
+    function Finalizar() {
+        router.push('/Auth/FinalM');
+    }
 
     let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_500Medium, Sora_600SemiBold, Sora_700Bold });
     if (!fontsLoaded) return null;
@@ -50,10 +56,10 @@ export default function Etapa4(props : {SetEtapa: (placeholder : number) => void
                     Documento de autorização
                 </Text>
 
-                <Button borderStyle='dashed' borderRadius={18} borderWidth={4} borderColor={'#8d8d8d'} bg={'white'}><FontAwesomeIcon size={25} color='#858585' icon={faUpload} /><Text style={{fontFamily: 'Sora_500Medium'}} className='color-[#8d8d8d]' >Faça upload do PDF aqui</Text></Button>
+                <Button borderStyle='dashed' rounded={18} borderWidth={4} borderColor={'#8d8d8d'} bg={'white'}><FontAwesomeIcon size={25} color='#858585' icon={faUpload} /><Text style={{fontFamily: 'Sora_500Medium'}} className='color-[#8d8d8d]' >Faça upload do PDF aqui</Text></Button>
             </View>
             
-            <TouchableOpacity onPress={() => props.SetEtapa(1)}>
+            <TouchableOpacity onPress={() => Finalizar()}>
                 <Text style={{fontFamily: 'Sora_700Bold'}} className='self-center text-[22px] underline'>Finalizar</Text>
             </TouchableOpacity>
 

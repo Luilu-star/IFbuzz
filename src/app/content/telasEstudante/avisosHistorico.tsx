@@ -50,7 +50,8 @@ export default function telaAvisosHistorico() {
                         </Pressable>
                     </View>
 
-                    <View> {avisos.map((aviso) => (
+                    <View> 
+                        {avisos.map((aviso) => (
                         
                         <View key={aviso.id}style={{ backgroundColor: '#FFFFFF', marginTop: 20, width: 340, marginLeft: 23, borderRadius: 10, padding: 15, elevation: 3, height: 190}}>
                             <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}> 
