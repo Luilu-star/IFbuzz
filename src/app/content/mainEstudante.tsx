@@ -19,7 +19,6 @@ export default function telaMainEstudante() {
     
     const [horaAtual, setHoraAtual] = useState('');
     
-
     useEffect(() => {
         const atualizarHora = () => {
             const agora = new Date();

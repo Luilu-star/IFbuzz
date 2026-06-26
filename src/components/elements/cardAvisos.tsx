@@ -8,6 +8,7 @@ type Props = AvisoItem & {
   onPress?: () => void;
 };
 
+
 export default function AvisoCard({
   titulo,
   conteudo,

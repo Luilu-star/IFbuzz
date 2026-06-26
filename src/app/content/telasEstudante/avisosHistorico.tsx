@@ -9,6 +9,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
 import { avisos } from '@/components/modules/avisos';
+import { useFocusEffect } from '@react-navigation/native';
 
 const config = createTamagui(defaultConfig)
 
