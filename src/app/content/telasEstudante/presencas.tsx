@@ -26,7 +26,7 @@ export default function telaAvisosHistorico() {
 
                 <ScrollView showsVerticalScrollIndicator={false}>
 
-                    <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 12, marginTop: 4, gap:30}}>
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 12, marginTop: 40, gap:30}}>
                                       
                         <View style={{ flex:1, backgroundColor:'#D1EEB9', borderRadius: 100, height:45, marginLeft: 1, marginRight:2, marginTop: 8, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center'}}>          
                             <TextInput placeholder="Pesquise pela rota desejada..." style={{flex: 1,color: '#3A3A3A'}}/>
