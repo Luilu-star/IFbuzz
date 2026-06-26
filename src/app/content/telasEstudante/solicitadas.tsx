@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { TextInput, View, Text, KeyboardAvoidingView, ScrollView, Pressable } from "react-native";
 import { Avatar, Button, createTamagui, TamaguiProvider, Image} from 'tamagui';
 import "../../../../global.css";
-import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot, faTriangleCircleSquare} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faArrowLeft, faStar, faCalendar, faClock, faLocationDot,faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
@@ -24,7 +24,7 @@ export default function telaBuscarRotas() {
 
                 <ScrollView showsVerticalScrollIndicator={false}>
 
-                    <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 12, marginTop: 4, gap:30}}>
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 12, marginTop: 40, gap:30}}>
                                       
                         <View style={{ flex:1, backgroundColor:'#D1EEB9', borderRadius: 100, height:45, marginLeft: 1, marginRight:2, marginTop: 8, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center'}}>          
                             <TextInput placeholder="Pesquise pela rota desejada..." style={{flex: 1,color: '#3A3A3A'}}/>
@@ -99,9 +99,9 @@ export default function telaBuscarRotas() {
                                     <Text style={{fontSize:15, fontFamily:'Sora_600SemiBold'}}> 06:10 - 07:00</Text>     
                                </View>
                                 
-                                <View style={{backgroundColor: '#FFF', borderWidth: 1,borderColor: '#CCC',borderRadius: 10 , height:100, marginTop: 20, width: 220, alignItems:'center', justifyContent: 'space-between'}}>
-                                    <FontAwesomeIcon style={{}} icon={faTriangleCircleSquare} size={30} color="#333" />
-                                    <Text style={{ fontFamily:'Sora_600SemiBold'}}> Aguardando confirmação do motorista...</Text>
+                                <View style={{backgroundColor: '#FFF', borderWidth: 1,borderColor: '#CCC',borderRadius: 10 , height:100, marginTop: 20, width: 220, alignItems:'center', justifyContent: 'center', gap: 6}}>
+                                    <FontAwesomeIcon style={{}} icon={faCircleNotch} size={30} color="#2E9C43" />
+                                    <Text style={{ fontFamily:'Sora_600SemiBold', textAlign: 'center', fontSize:12}}> Aguardando confirmação do motorista...</Text>
                                 </View>
                     
                                 <View style={{position: 'absolute', right: 20, top: 50, alignItems: 'center',}}>
